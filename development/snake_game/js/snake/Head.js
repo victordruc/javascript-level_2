@@ -2,8 +2,11 @@ class Head {
     constructor(x = 0, y = 0, dir) {
         this.x = x
         this.y = y
+        this.dir = dir
+    }
+    render() {
 
-        switch (dir) {
+        switch (this.dir) {
             case "up":
                 this.position = "-192px 0"
                 break
@@ -23,8 +26,7 @@ class Head {
             default:
                 this.position = "-192px 0"
         }
-    }
-    render() {
+
         return `
         <div
             style="

@@ -1,38 +1,63 @@
 class Tail {
     constructor(x = 0, y = 0, dir) {
+        this.x = x
+        this.y = y
+        this.dir = dir
 
-        switch (dir) {
+    }
+    render() {
+        switch (this.dir) {
             case "up":
                 this.position = "-192px -128px"
-                this.x = x
-                this.y = y + 2
+                break
+
+            case "up-turn-right":
+                this.position = "-192px -128px"
+                break
+
+            case "up-turn-left":
+                this.position = "-192px -128px"
                 break
 
             case "down":
                 this.position = "-256px -192px"
-                this.x = x
-                this.y = y - 2
+                break
+
+            case "down-turn-right":
+                this.position = "-256px -192px"
+                break
+
+            case "down-turn-left":
+                this.position = "-256px -192px"
                 break
 
             case "left":
                 this.position = "-192px -192px"
-                this.x = x + 2
-                this.y = y
+                break
+
+            case "left-turn-up":
+                this.position = "-192px -192px"
+                break
+
+            case "left-turn-down":
+                this.position = "-192px -192px"
                 break
 
             case "right":
                 this.position = "-256px -128px"
-                this.x = x - 2
-                this.y = y
                 break
-            
+
+            case "right-turn-down":
+                this.position = "-256px -128px"
+                break
+
+            case "right-turn-up":
+                this.position = "-256px -128px"
+                break
+
             default:
                 this.position = "-192px -128px"
-                this.x = x
-                this.y = y + 2
         }
-    }
-    render() {
         return `
         <div
             style="

@@ -1,6 +1,6 @@
 let map = new Map()
 let apple = new Apple(1,3)
-let snake = new Snake(5,4, "down")
+let snake = new Snake(5,4)
 
 let coin = new Coin (4,8)
 let heart = new Heart (4,6)
@@ -14,5 +14,20 @@ map.children.push(mouse)
 
 map.render(container)
 
-// HW3: add coin, heart ... ------- ok
-// HW4: add direction Snake ...
+setInterval(()=>{
+    snake.move()
+    map.render(container)
+},1000)
+
+const userAction = (e) => {
+    switch(e.code) {
+        case "ArrowUp": snake.children[0].dir = "up"; break
+        case "ArrowRight": snake.children[0].dir = "right"; break
+        case "ArrowDown": snake.children[0].dir = "down"; break
+        case "ArrowLeft": snake.children[0].dir = "left"; break
+    }
+}
+
+// HW1: boundaries
+
+// HW2: fix direction
