@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="termometer.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <select id="temperature-selected">
+      <option>Celsius</option>
+      <option>Fahrenheit</option>
+    </select>
+    <input id="temperature-input" placeholder="indica aici valoarea in grade C">
+  </div>
+  <div id="termometer">
+    <div id="termometer-indicator" style="width:60px;">
+    </div>
+    <div id="termometer-digits">
+      <span>-20
+      </span><span>-10
+      </span><span>0
+      </span><span>10
+      </span><span>20
+      </span><span>30
+      </span><span>40
+      </span><span>50
+      </span>
+    </div>
+  </div>
+  <script src="termometer.js"></script>
+</body>
+
+</html>

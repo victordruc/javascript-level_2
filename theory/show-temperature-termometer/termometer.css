@@ -1,0 +1,15 @@
+#termometer-indicator{
+    height: 2px;
+    background: red;
+  }
+  #temperature-input{
+    width: 210px;
+  }
+  #termometer-digits{
+    font-family: monospace;
+  }
+  #termometer-digits span{
+    display: inline-block;
+    width: 29px; /*+1px border=30*/
+    border-left:1px solid black;
+  }  
