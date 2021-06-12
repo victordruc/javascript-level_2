@@ -1,0 +1,23 @@
+#table {
+  border: 1px solid #bbb;
+}
+
+#table .row {
+  padding: 2px;
+}
+
+#table .row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+#table .name,
+#table .price,
+#table .quantity,
+#table .operations {
+  float: left;
+  padding: 5px;
+  width: 25%;
+  box-sizing: border-box;
+}
