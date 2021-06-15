@@ -7,6 +7,9 @@ const init = () => {
     renderOptions(options)
 
     let agreeCheckbox = document.querySelector(`[name="terms"]`)
+    let optionSelected = document.getElementById("options")
+
+    optionSelected.onchange = agreementCheckboxHandler
     agreeCheckbox.onchange = agreementCheckboxHandler
 }
 
@@ -30,7 +33,15 @@ const agreementCheckboxHandler = () => {
     let agreeCheckbox = document.querySelector(`[name="terms"]`)
     let btn = document.querySelector("#btn-subscribe")
 
-    if(agreeCheckbox.checked) {
+    // HW--------------------------------->
+
+    let optionSelected = Array.from(document.getElementById("options").getElementsByTagName("input"))
+
+    let checkedOptionSelected = optionSelected.find(item => item.checked)
+
+    // HW---------------------------------<
+
+    if(agreeCheckbox.checked && checkedOptionSelected) {
         btn.removeAttribute("disabled")
         renderAgreementText("You've agreed to the terms and conditions!")
     }   else {
