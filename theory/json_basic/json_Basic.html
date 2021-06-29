@@ -1,0 +1,17 @@
+<script>
+    let books = [
+        { title: "First title", body:"First body", },
+        { title: "Second title", body: "Second body", },
+        { title: "Third title", body: "Third body", },
+    ]
+
+    let jsonTransform = data => JSON.stringify(data)
+
+    console.log(jsonTransform(books))
+    
+    // [{"title":"First title","body":"First body"},{"title":"Second title","body":"Second body"},{"title":"Third title","body":"Third body"}]
+    
+    console.log(typeof jsonTransform(books))
+    
+    // In urma transformarii, toate keyle din obiect au fost transformate in String, la fel ca si tot arrayul.
+</script>

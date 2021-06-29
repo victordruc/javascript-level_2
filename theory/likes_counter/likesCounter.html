@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likes Counter | JSON</title>
+</head>
+<body>
+    
+    <button id="likeBTN" onclick="like()">Like</button>
+
+
+    <script>
+        // Validate like
+        localStorage.getItem("likes")?localStorage.getItem("likes"):localStorage.setItem("likes", 0)
+        let likes = Number.isNaN(parseInt(localStorage.getItem("likes")))?0:parseInt(localStorage.getItem("likes"))
+        // Validate like
+        
+        function like() {
+            likes++
+            render()
+
+            localStorage.setItem("likes", likes)  
+        }
+
+        function render() {
+            let btn = document.getElementById("likeBTN")
+            btn.innerText = `Likes ${changeNumber(likes)}`
+        }
+
+        function changeNumber(number) {
+            if(number >= 0 && number <=999) {
+                return number
+            } else if(number>999 && number<1000000) {
+                number /=1000
+                return number.toFixed(1)+"K"
+            } else if (number>999999 && number<1000000000) {
+                number /=1000000
+                return number.toFixed(1)+"M"
+            } else {
+                return "No more LIKE)"
+            }
+        }
+
+        render()
+        
+        // HW1: if/else -> 1...999 likes 999; 1000...999000 - 1.5K, 1.5M ->ok
+
+        // HW2: if/else null=>0 ->ok
+
+        // HW3: when getting the item -> integer number->ok
+    </script>
+</body>
+</html>

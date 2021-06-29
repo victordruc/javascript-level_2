@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat | Local Storage</title>
+</head>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #283747;
+        color: #F3F3F3;
+        --color: #0d6efd;
+    }
+
+    button {
+        color: var(--color);
+        border-color: var(--color);
+        cursor: pointer;
+        background-color: transparent;;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: .25rem;
+        transition: .5s
+    }
+
+    button:hover {
+        color: #F3F3F3;
+        border-color: var(--color);
+        background-color: var(--color);
+    }
+
+    hr {
+        border-color: var(--color);
+    }
+
+    .chatStyle {
+        border: 2px solid var(--color);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    input {
+        color: var(--color);
+        border-color: var(--color);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        border-radius: .25rem;
+        margin-right: 8px;
+        background-color: transparent;
+        color: inherit;
+    }
+
+    input:focus-visible {
+        outline: none;
+        border-color: var(--color);
+        box-shadow: inset 1px 1px 2px var(--color),
+        inset 1px 1px 4px var(--color),
+        1px 1px 2px var(--color),
+        1px 1px 4px var(--color);
+    }
+</style>
+
+<body>
+    <div onclick="typeChat(event)">
+        <small>Type of Chat:</small>
+        <button>Direct</button>
+        <button>Indirect</button>
+    </div>
+
+    <div id="chat">
+        <!-- <ol id="messages-list"> -->
+        <!-- render JS -->
+        <!-- </ol> -->
+
+        <!-- <hr> -->
+
+        <!-- <div id="form">
+            <input type="text" id="message-input">
+            <button id="message-send" onclick="send();render(messages)">SEND</button>
+        </div> -->
+    </div>
+
+    <script>
+        let type = true
+        let changeDirection = false
+        const NAMECHAT = "messages"
+
+        localStorage.getItem(NAMECHAT) ? localStorage.getItem(NAMECHAT) : localStorage.setItem(NAMECHAT, "[]")
+
+        let messages = JSON.parse(localStorage.getItem(NAMECHAT))
+
+        const badWords = ["sss", "www", "fff"]
+
+        const render = (messages) => {
+            if (!type && !changeDirection) {
+                messages.reverse()
+                changeDirection = true
+            } else if (type && changeDirection) {
+                messages.reverse()
+                changeDirection = false
+            }
+            let list = document.getElementById("messages-list")
+            list.innerHTML = ""
+            messages.forEach(message => {
+                let li = document.createElement("li")
+                message = message.replace(":)", `<img src="icons/Emoji-Blushing-icon.png">`)
+                li.innerHTML = message
+                list.appendChild(li)
+            });
+        }
+
+        const send = () => {
+            let input = document.getElementById("message-input")
+            let message = input.value.trim()
+            if (!message) {
+                return
+            }
+
+            badWords.forEach(m => {
+                message.includes(m) ? message = "[censored]" : message
+            })
+
+            type ? messages.push(message) : messages.unshift(message)
+
+            if (messages.length > 10) {
+                messages = type ? messages.slice(-10) : messages.slice(0, 10)
+            }
+
+            localStorage.setItem(NAMECHAT, JSON.stringify(messages))
+            input.value = ""
+        }
+
+        const typeChat = (e) => {
+            if (e.target.tagName != 'BUTTON') return
+            let chat = document.getElementById("chat")
+            chat.className = "chatStyle"
+            while (chat.firstChild) {
+                chat.removeChild(chat.firstChild);
+            }
+            let ol = document.createElement("ol")
+            ol.id = "messages-list"
+
+            let hr = document.createElement("hr")
+
+            let div = document.createElement("div")
+            div.id = "form"
+
+            let input = document.createElement("input")
+            input.type = "text"
+            input.id = "message-input"
+
+            let button = document.createElement("button")
+            button.id = "message-send"
+            button.onclick = () => { send(); render(messages) }
+            button.innerText = "SEND"
+
+            div.append(input, button)
+            switch (e.target.innerHTML) {
+                case "Direct":
+                    type = true
+                    chat.append(ol, hr, div)
+                    break
+                case "Indirect":
+                    type = false
+                    ol.reversed = true
+                    chat.append(div, hr, ol)
+                    break
+            }
+            render(messages)
+        }
+
+    </script>
+
+</body>
+
+</html>
