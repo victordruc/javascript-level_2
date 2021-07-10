@@ -18,13 +18,15 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#shopNavigation" aria-controls="shopNavigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="shopNavigation">
+          <div class="collapse navbar-collapse flex-grow-0" id="shopNavigation">
            
+            <div id="rootCart"></div>
+            <div id="rootCurrSwitch"></div>
             <!-- <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form> -->
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <!-- <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     cart
@@ -36,7 +38,7 @@
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                   </ul>
                 </li>
-              </ul>
+              </ul> -->
           </div>
         </div>
       </nav>
@@ -56,6 +58,10 @@
 
     <script src="src/Product.js"></script>
     <script src="src/Cart.js"></script>
+    <script src="src/Currency.js"></script>
+    <script src="src/TestDataService.js"></script>
+    <script src="src/CurrencyService.js"></script>
+    <script src="src/CurrencySwitcher.js"></script>
     <script src="src/catalog.js"></script>
     <script src="src/shop.js"></script>
 </body>

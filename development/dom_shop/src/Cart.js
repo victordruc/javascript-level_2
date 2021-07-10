@@ -31,7 +31,7 @@ class Cart {
     addProduct(e) {
         console.log(e.target.dataset.productId)
         this.items.push(catalog.find(item=>item.id == e.target.dataset.productId))
-        this.render("shopNavigation")
+        this.render("rootCart")
         // HW4: extract the product id from the dataset->ok
     }
 } 
