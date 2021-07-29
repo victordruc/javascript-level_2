@@ -49,7 +49,7 @@ function spyScroll(rootSection, rootCanvas = ".offcanvas", rootPlayerCanvas = "m
         if (key !== playVideo && playVideo) {
           // console.log(key, playVideo)
           // check play status----->
-          if (videoPlayNow !== playVideo) {
+          if (videoPlayNow !== playVideo && !videojs(playVideo).paused()) {
             videoPlayNow = playVideo
             videojs(playVideo).pause()
             playerCanvas.src({
@@ -59,6 +59,7 @@ function spyScroll(rootSection, rootCanvas = ".offcanvas", rootPlayerCanvas = "m
             playerCanvas.ready(() => {
               playerCanvas.currentTime(videojs(playVideo).currentTime())
             })
+            
             playerCanvas.play()
             bsOffcanvas.show()
           }
