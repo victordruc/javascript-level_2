@@ -1,0 +1,22 @@
+.offcanvas-end {
+    top: unset;
+    border-top: 1px solid rgba(0,0,0,.2);
+    height: 200px;
+}
+
+.sectionVideo {
+    margin-top: 10px;
+    width: 100%;
+    height: 100vh;
+}
+
+.video-js {
+    width: 100%;
+    height: 100vh;
+}
+
+.offcanvas-header {
+    position: absolute;
+    z-index: 20;
+    right: 0;
+}

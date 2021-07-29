@@ -1,0 +1,20 @@
+[{
+    "id":1,
+    "poster":"//vjs.zencdn.net/v/oceans.png",
+    "srcMP4":"//vjs.zencdn.net/v/oceans.mp4"
+},
+{
+    "id":2,
+    "poster":"https://cdn.pixabay.com/photo/2015/03/15/18/34/building-674828_960_720.jpg",
+    "srcMP4":"http://techslides.com/demos/sample-videos/small.mp4"
+},
+{
+    "id":3,
+    "poster":"https://cdn.pixabay.com/photo/2011/12/13/14/31/earth-11015_960_720.jpg",
+    "srcMP4":"https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4"
+},
+{
+    "id":4,
+    "poster":"http://html5videoformatconverter.com/data/images/screen.jpg",
+    "srcMP4":"https://html5videoformatconverter.com/data/images/happyfit2.mp4"
+}]
